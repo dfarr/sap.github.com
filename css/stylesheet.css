@@ -9,11 +9,28 @@ SAP Theme - by Jonathan Baker
   width: 100%;
 }
 
+.thumbnail {
+	min-height: 400px;
+	border: 2px solid #ddd; 
+	-webkit-box-shadow: 4px 4px 4px darkgrey;
+}
+
+.thumbnail:hover {
+	border: 2px solid #efac48;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
 .thumbnail img {
 	width: 300px;
-	height: 200px;
+	height: 200px; 
 	
-	margin: 10px 10px 0px 10px;
+}
+
+.sap-yellow {
+	background-color: #efac48;
 }
 
 #header_wrap {
