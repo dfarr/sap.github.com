@@ -17,7 +17,7 @@
       TODO
 
          */
-        .navbar-text.pull-right {
+      .navbar-text.pull-right {
           float: none;
           padding-left: 5px;
           padding-right: 5px;
@@ -118,11 +118,13 @@
         background-color: #FFFFFF;
       }
 
-
-      /*
-         Boxes with border only 10pixes ???
-      */
-
+      #right-corner {
+        position: fixed; /* Make sure you can align it exactly */
+        cursor: pointer; /* Change the cursor on mouse over */
+        top: 0px; /* Change to 100px to put it under a 100px banner */
+        right: 0px; /* Change to 100px to put it left of a 100px right-side bar */
+        z-index: 99999; /* make sure it is the top element always */
+      }
 
     </style>
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -143,6 +145,23 @@
   </head>
 
   <body>
+
+    <!-- <a href="#employeeModal" id="right-corner" data-toggle="modal">
+        <img src="img/employee-banner.png" alt="I am an SAP employee, I want my code here">
+    </a>
+
+    <div id="employeeModal" class="modal hide fade" tabindex="-1" role="dialog" arial-labelledby="employeeModal" arial-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" arial-hidden="true">&times;</button>
+        <h3>What SAP employees need to do to share thier code here</h3>
+      </div>
+      <div class="modal-body">
+        <p>One fine body...</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn">Close</a>
+      </div>
+    </div> -->
 
     <div class="header-sap"></div>
 
@@ -273,7 +292,7 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery-1.9.1-min.js"></script>
+    <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     
     <!-- Placeholder Library for Testing the environment 
