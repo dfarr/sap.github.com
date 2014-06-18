@@ -1,289 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>SAP Developers</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-	
-	<!-- Welcome to the source code of this page... ;-)  
-	Yep, in case you were wondering: SAP is using CSS of Bootstrap here, not UI5. 
-	Nothing wrong about this: always use what is most appropriate for the task, let's not be too religious about libraries.
-	This is just a plain static HTML grid layout, so there is no need for a JS library. :-)
-	-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>SAP Developers @ GitHub</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
 
-    <!-- Le styles -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/sap.css" rel="stylesheet">
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
 
-    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <a id="back-to-top" href="#" class="btn btn-default back-to-top" role="button" title="Back to top of page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="../js/html5shiv.js"></script>
-    <![endif]-->
-
-    <!-- Fav and touch icons -->
-    <!--
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
-    -->
-
-  </head>
-
-  <body>
-
-    <!-- <a href="#employeeModal" id="right-corner" data-toggle="modal">
-        <img src="img/employee-banner.png" alt="I am an SAP employee, I want my code here">
-    </a> -->
-
-    <div id="employeeModal" class="modal hide fade" tabindex="-1" role="dialog" arial-labelledby="employeeModal" arial-hidden="true">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" arial-hidden="true">&times;</button>
-        <h3>Dear SAP Employee,</h3>
-      </div>
-      <div class="modal-body">
-        <p>Are you interested in making your project open source? Do you have an open source project with <b>outbound open source approval</b> from SAP?  If so, and you would like to host on <b>sap.github.io</b> please read the <a href="faq.html">Frequently Asked Questions</a> page or send an e-mail to <img src="img/where-to-go.PNG" alt="Developer Center email address">.
-      </div>
-      <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Open Source & SAP: <span id="rotate-word">Give</span></h1>
       </div>
     </div>
 
-    <div class="header-sap"></div>
-
-    <div class="container-fluid">
-
-      <div class="row-fluid">
-
-        <div class="span12 hero-unit-sap hero-unit-sap-box">
-
-          <div class="row-fluid">
-
-            <div class="span12">
-              <h1>SAP Developers</h1>
-              <p>Development with SAP Give. Take. Solve.<p> Give us your projects, share your code with other developers.
-                  Take projects and samples to solve your problems. Join our growing community!
-              </p>
-            </div>
-          </div>
-
-          <div class="row-fluid">
-		  
-		   <a href="#cloud" class="span3 category">
-              <div class="media">
-                <img class="media-object pull-left" src="img/icon-cloud-inverse.png">
-                <div class="media-body" style="padding-top: -12px;">
-                  <h4 class="media-heading">Cloud</h4>
-                  SAP HANA Cloud projects
-                </div>
-              </div>
-            </a>
-			
-            <a href="#db" class="span3 category">
-              <div class="media">
-                <img class="media-object pull-left" src="img/icon-data-inverse.png">
-                <div class="media-body">
-                  <h4 class="media-heading">Data</h4>
-                  SAP HANA database projects
-                </div>
-              </div>
-            </a>
-
-            <a href="#mobile" class="span3 category">
-              <div class="media">
-                <img class="media-object pull-left" src="img/icon-mobile-inverse.png">
-              <div class="media-body" style="padding-top: -12px;">
-                <h4 class="media-heading">Mobile</h4>
-                SAP Mobile Platform projects
-              </div>
-              </div>
-            </a>
-			
-			       <a href="#ui" class="span3 category">
-              <div class="media">
-                <img class="media-object pull-left" src="img/icon-ui-inverse-blue.png">
-                <div class="media-body" style="padding-top: -12px;">
-                  <h4 class="media-heading">User Interface</h4>
-                  SAP User Interface projects
-                </div>
-              </div>
-            </a>
-
-          </div>
-
-          </div>
-
-<!--
-          <div class="span6 hero-unit-sap hero-unit-sap-box">
-            Solution if we need more space  
-          </div>
--->
-
+    <div class="navbar" role="navigation">
+    <div class="container">
+      <div class="navbar-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav navbar-left">
+            <img id="saplogo" src="img/saplogo.png" height="35"/>
+        </ul>
+        <ul class="nav navbar-nav" id="nav">
+          <li><a class="filter nav-category">Featured</a></li>
+          <li class="divider-vertical"></li>
+          <li><a class="filter nav-category">All</a></li>
+          <li><a class="filter nav-category">Cloud</a></li>
+          <li><a class="filter nav-category">Data</a></li>
+          <li><a class="filter nav-category">Interface</a></li>
+          <li><a class="filter nav-category">Mobile</a></li>
+          <li class="divider-vertical"></li>
+          <li><a class="filter nav-category">General</a></li>
+        </ul>
+        <form class="navbar-form navbar-right">
+          <input type="text" class="form-control" id="searchTxt" placeholder="Search Projects">
+        </form>
       </div>
+      </div>
+    </div>
 
-      <div class="row-fluid">
-
-
-        <div class="span3 hero-unit-sap hero-unit-sap-ui">
-         <a name="ui"></a> 
-           <h3>OpenUI5</h3>
-           <p>OpenUI5 lets you build enterprise-ready web applications, responsive to all devices, running on almost any browser. It’s based on JavaScript, using JQuery as its foundation and follows web standards. It eases your development with a client-side HTML5 rendering library including a rich set of controls and supports data binding to different models (JSON, XML and OData).</p>
-           <p><a class="btn btn-small btn-inverse" href="http://sap.github.io/openui5/">Get Started</a></p>
+    <div class="container content">
+      <div id="sortRow" class="row">
+        <div class="col-md-offset-10 col-md-2" style="text-align: right;">Sort by: 
+        <div class="btn-group">
+          <button type="button" class="btn btn-default btn-xs btn-toggle" id="sortAsc"><i class="fa fa-sort-alpha-asc"></i></button>
+          <button type="button" class="btn btn-default btn-xs btn-toggle" id="sortNewest"><i class="fa fa-clock-o"></i></button>
         </div>
-        <div class="span3 hero-unit-sap hero-unit-sap-db hero-unit-sap-db-hl">
-            <a name="db"></a> 
-            <h3>Node-hdb</h3>
-            <p>A JavaScript client for Node to connect to SAP HANA.
-            <p><a class="btn btn-small btn-inverse" href="https://github.com/SAP/node-hdb/">Get Started</a></p>
-        </div><!--/span-->
-
-        <div class="span3 hero-unit-sap hero-unit-sap-cloud">
-          <h3>OData Library for Java</h3>
-          <p>A Java based libary for producing and consuming services based on the OData protocol.</p>
-          <p><a class="btn btn-small btn-inverse" href="https://github.com/SAP/cloud-odata-java">Get Started</a></p>
-        </div><!--/span-->
-        <div class="span3 hero-unit-sap hero-unit-sap-general">
-          <h3>PyRFC - The Python RFC Connector</h3>
-          <p>The pyrfc Python package provides Python bindings for SAP NetWeaver RFC Library, for a comfortable way of calling ABAP modules from Python and Python modules from ABAP, via SAP Remote Function Call (RFC) protocol.</p>
-          <p><a class="btn btn-small btn-inverse" href="http://sap.github.io/PyRFC">Get Started</a>&nbsp;&nbsp;
-          <a class="btn btn-small btn-inverse" href="https://github.com/SAP/PyRFC">Fork</a></p>
-        </div><!--/span-->
-     </div><!--/row-->
-
-     <div class="row-fluid">
-        <div class="span3 hero-unit-sap hero-unit-sap-cloud hero-unit-sap-cloud-hl">
-          <h3>ActiveRecord HANA Adapter</h3>
-          <p>The Hana ActiveRecord adapter provides Hana access from Ruby on Rails applications. The adapter is compatible with Ruby on Rails v3 and v4.</p>
-          <p><a class="btn btn-small btn-inverse" href="https://github.com/SAP/activerecord-hana-adapter">Fork</a></p>
-        </div><!--/span-->
-        <div class="span3 hero-unit-sap hero-unit-sap-cloud">
-          <h3>Basecamp</h3>
-          <p>A simple Maven skeleton project of web app archetype</p>
-          <p><a class="btn btn-small btn-inverse" href="https://github.com/SAP/cloud-basecamp">Fork</a></p>
-        </div><!--/span-->
-      <div class="span3 hero-unit-sap hero-unit-sap-cloud">
-          <h3>Responsive UI</h3>
-          <p>is a responsive web application for showcasing the power of open source and SAP HANA Cloud.It hosts the supplements of SAPs TechEd 2012 session Tapping into Open Source with SAP HANA Cloud and serves as a central entry point to the content.</p>
-          <p><a class="btn btn-small btn-inverse" href="https://github.com/SAP/cloud-responsive-ui">Fork</a></p>
-      </div><!--/span-->
-      <div class="span3 hero-unit-sap hero-unit-sap-cloud">
-          <h3>Spring Rest Samples</h3>
-          <p>This sample demonstrates how-to expose services as a public RESTful API using Apache CFX and the Spring framework.</p>
-          <p><a class="btn btn-small btn-inverse" href="https://github.com/SAP/cloud-springrest">Fork</a></p>
-      </div><!--/span-->
-    </div>
-    <div class="row-fluid">
-      <div class="span3 hero-unit-sap hero-unit-sap-cloud">
-          <h3>Ruby Gem for the MaxDB JDBC driver</h3>
-          <p>This is a Ruby gem that wraps the JDBC driver for the SAP MaxDB database.</p>
-          <p><a class="btn btn-small btn-inverse" href="https://github.com/SAP/cloud-jdbc-maxdb-gem">Fork</a></p>
-       </div><!--/span-->
-       <div class="span3 hero-unit-sap hero-unit-sap-cloud">
-          <h3>Connectivity Proxy</h3>
-          <p>The Connectivity Proxy component allows your JavaScript application to consume backend services in a comfortable way while preventing cross-domain problems that would occur when trying to call those backends directly from the application.</p>
-          <p><a class="btn btn-small btn-inverse" href="https://github.com/SAP/cloud-connectivityproxy">Fork</a></p>
-       </div><!--/span-->
-       <div class="span3 hero-unit-sap hero-unit-sap-cloud">
-          <h3>ESPM reference application</h3>
-          <p>ESPM is a reference application project showcasing end-to-end development scenarios for UI5 mobile and web applications using OData as backend connectivity.</p>
-          <p><a class="btn btn-small btn-inverse" href="https://github.com/SAP/cloud-espm-scenarios">Fork</a></p>
-       </div><!--/span-->
-       <div class="span3 hero-unit-sap hero-unit-sap-cloud">
-          <h3>Enterprise Granny</h3>
-          <p>A sample address book application demonstrating the interplay of popular open-source libraries.</p>
-          <p><a class="btn btn-small btn-inverse" href="https://github.com/SAP/cloud-enterprise-granny">Fork</a></p>
-      </div><!--/span-->
-    </div>
-    <div class="row-fluid">
-      <div class="span3 hero-unit-sap hero-unit-sap-cloud">
-          <h3>PersonsList Getting Started Application</h3>
-          <p>PersonsList offers developers a comprehensive and easy-to-use tutorial for developing an SAP HANA Cloud Web Application Scenario.</p>
-          <p><a class="btn btn-small btn-inverse" href="https://github.com/SAP/cloud-personslist-scenario">Fork</a></p>
-      </div><!--/span-->
-       <div class="span3 hero-unit-sap hero-unit-sap-cloud">
-          <h3>SAP HANA Search Demo</h3>
-          <p>This sample web application demonstrates how-to use native SAP HANA search (fuzzy and linguistic) in Java applications running on SAP HANA Cloud Platform.</p>
-          <p><a class="btn btn-small btn-inverse" href="https://github.com/SAP/cloud-hana-search-demo">Fork</a></p>
-      </div><!--/span-->
-      <div class="span3 hero-unit-sap hero-unit-sap-cloud">
-          <h3>SAP HANA Scripted Views Demo</h3>
-          <p>This sample web application demonstrates how-to use SAP HANA Scripted Views in SAP HANA Cloud Platform.</p>
-          <p><a class="btn btn-small btn-inverse" href="https://github.com/SAP/cloud-hana-scriptview-demo">Fork</a></p>
-      </div><!--/span-->
-       <div class="span3 hero-unit-sap hero-unit-sap-general">
-          <h3>Xcode Maven Plugin</h3>
-          <p>Everything you need to instrument your Apple iOS development life-cycle with Maven including the provisioning of required libraries for your local Xcode project.</p>
-          <p><a class="btn btn-small btn-inverse" href="http://sap-production.github.io/xcode-maven-plugin">Get Started</a>&nbsp;&nbsp;<a class="btn btn-small btn-inverse" href="https://github.com/sap-production/xcode-maven-plugin">Fork</a></p>
-       </div><!--/span-->
-    </div>
-    <div class="row-fluid">
-        <div class="span3 hero-unit-sap hero-unit-sap-cloud">
-          <h3>ActiveRecord MaxDB Adapter</h3>
-          <p>This is an ActiveRecord JDBC adapter for the SAP MaxDB database usable on SAP HANA Cloud. It is intended to be used in JRuby environment only and it is an extension of the ActiveRecord JDBC Adapter project.</p>
-          <p><a class="btn btn-small btn-inverse" href="https://github.com/SAP/cloud-activerecord-maxdb-adapter">Fork</a></p>
-        </div><!--/span-->
-        <div class="span3 hero-unit-sap hero-unit-sap-cloud">
-          <h3>Paul Predicts</h3>
-          <p>Paul Predicts is a real-life, productively used app showing how to create a server back-end serving multiple front-end technologies. It is showing all currently available SAP HANA Cloud services.</p>
-          <p><a class="btn btn-small btn-inverse" href="https://github.com/SAP/cloud-paulpredicts">Fork</a></p>
-        </div><!--/span-->
-        <div class="span3 hero-unit-sap hero-unit-sap-cloud">
-          <h3>Spring Roo Add-on</h3>
-          <p>Roo is a Rapid Application Development (RAD) framework maintained by Spring- Source. We have created plugins for Roo to make it easy and comfortable to use Roo with the SAP HANA Cloud platform. Use Roo to create a basic web...
-          <p><a class="btn btn-small btn-inverse" href="http://sap.github.io/cloud-roo-addon/">Get Started</a>&nbsp;&nbsp;<a class="btn btn-small btn-inverse" href="https://github.com/SAP/cloud-roo-addon">Fork</a></p>
-        </div><!--/span-->
-        <div class="span3 hero-unit-sap hero-unit-sap-cloud">
-          <h3>Spring Social</h3>
-          <p>This sample demonstrates how-to use spring-social to develop applications that integrate with Twitter.</p>
-          <p><a class="btn btn-small btn-inverse" href="https://github.com/SAP/cloud-springsocial">Fork</a></p>
-        </div><!--/span-->
-    </div>
-
-    <div class="row-fluid">
-
-        <div class="span3 hero-unit-sap hero-unit-sap-db">
-            <h3>DShell</h3>
-            <p>SAP Development Shell (DShell) enables HANA developers to deploy code to HANA with the tool of thier choice by leveragin GitHub and it's services hooks when deploying to SAP HANA. It is particularly suited for HTML/CSS and JavaScript.
-            <p><a class="btn btn-small btn-inverse" href="http://scn.sap.com/docs/DOC-41137">Get Started</a>&nbsp;&nbsp;<a class="btn btn-small btn-inverse" href="https://github.com/SAPDshell/dshell/">Fork</a></p>
-        </div><!--/span-->
-		
-      <div class="span3 hero-unit-sap hero-unit-sap-cloud">
-          <a name="cloud"></a> 
-          <h3>Roo SAP Gateway Add-On</h3>
-          <p>The SAP Netweaver Gateway Connectivity Add-On for Spring Roo adds commands to Roo that make it easy and comfortable to connect your Roo-generated projects to SAP Netweaver Gateway. </p>
-          <p><a class="btn btn-small btn-inverse" href="http://sap.github.io/cloud-roo-gwaddon/">Get Started</a>&nbsp;&nbsp;<a class="btn btn-small btn-inverse" href="https://github.com/SAP/cloud-roo-gwaddon">Fork</a></p>
-        </div><!--/span-->
-        <div class="span3 hero-unit-sap hero-unit-sap-cloud">
-          <h3>Deployment Plugin for Maven</h3>
-          <p>This is a plugin for Maven, which supports users in deploying web applications packaged in WAR files to SAP HANA Cloud, as well as starting/stopping instances of this web application there.</p>
-          <p><a class="btn btn-small btn-inverse" href="https://github.com/SAP/cloud-maven-plugin">Fork</a></p>
+        </div>
       </div>
-		
+      <!-- This is where JSON contents are loaded -->
+      <div id="Container" class="row Container">
+      </div>
+    </div> <!-- /container -->
+    <hr/>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12" id="templateLbl">Is your open-sourced SAP project missing here? Use our <a href="#">template</a> and contact us via <a href="mailto:contact@sapdevcenter.com">email</a>.</div>
+      </div>
+    </div>
+    <div id="footer">
+      <div class="container">
+        <span id="copyright">© SAP Labs, made available under Apache License 2.0</span>
+        <ul class="nav navbar-nav nav-footer">
+          <li><a target="_blank" href="http://sap.github.io/openui5/impressum.html">Legal Disclosure / Impressum</a></li>
+          <li><a target="_blank" href="http://global.sap.com/corporate-en/legal/privacy.epx">Privacy</a></li>
+          <li><a target="_blank" href="http://www.sap.com/germany/about/legal/privacy.html">Datenschutz</a></li>
+          <li><a target="_blank" href="http://sap.github.io/openui5/ga_disclaimer.html">Google Analytics Disclaimer</a></li>
+        </ul>
+      </div>
     </div>
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
 
-	  <script src="js/jquery-1.9.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <!-- <script type="text/javascript">
-
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-39779546-2']);
-        _gaq.push(['_trackPageview']);
-
-        (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-
-    </script> -->
-  </body>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    </body>
 </html>
