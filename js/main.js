@@ -159,7 +159,7 @@ function displayObjects() {
 		sortJSON();
 		$( ".Container" ).empty();
 		$.each(filteredObjects, function(i, item) { 
-			var str = '<div class="col-md-6 mix"><p class="header"><span class="updatedAt"><i class="fa fa-clock-o"></i> Updated on '+formatDate(removeHTMLChars(item.updatedAt))+'</span><span class="categories">';
+			var str = '<div class="col-md-6"><div class="mix"><p class="header"><span class="updatedAt hidden-xs"><i class="fa fa-clock-o"></i> Updated on '+formatDate(removeHTMLChars(item.updatedAt))+'</span><span class="categories">';
 			// add all categories as labels
 			$.each(item.categories, function(c, category) {
 				if(category.name.toLowerCase() === "featured") {
@@ -184,9 +184,9 @@ function displayObjects() {
 			// project url not required, so just add if available
 			if(item.linkToProject) {
 				str += '<a target="_blank" class="btn btn-info btn-bottom-left" href="'+removeHTMLChars(item.linkToGithub)+'" role="button"><i class="fa fa-code-fork"></i> Repository</a>';
-				str += '<a target="_blank" class="btn btn-success btn-bottom-right" href="'+removeHTMLChars(item.linkToProject)+'" role="button"><i class="fa fa-cogs"></i> Get started</a></p></div>';
+				str += '<a target="_blank" class="btn btn-success btn-bottom-right" href="'+removeHTMLChars(item.linkToProject)+'" role="button"><i class="fa fa-cogs"></i> Get started</a></p></div></div>';
 			} else {
-				str += '<a target="_blank" class="btn btn-info btn-bottom-full" href="'+removeHTMLChars(item.linkToGithub)+'" role="button"><i class="fa fa-code-fork"></i> Repository</a>';
+				str += '<a target="_blank" class="btn btn-info btn-bottom-full" href="'+removeHTMLChars(item.linkToGithub)+'" role="button"><i class="fa fa-code-fork"></i> Repository</a></p></div></div>';
 			}
 			$( ".Container" ).append( str );
 		});
@@ -223,7 +223,7 @@ $( document ).ready(function() {
 	$(window).scroll(function(e){
 	    // let logo scroll with content
 	    var top = $(window).scrollTop();
-	    if(top >= 250) {
+	    if(top >= 250 && ($(window).width() > 768)) {
 	      $(".navbar").css('transform', 'translateY('+(top-250)+'px)');
 	    } else {
 	      $(".navbar").css('transform', 'translateY(0px)');
