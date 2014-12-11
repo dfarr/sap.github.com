@@ -29,7 +29,7 @@ function initDeafult() {
 
 function setURLParameter(){
 	//set the URL accordingly
-	if(getURLParameter('sort') != sortParam || getURLParameter('filter') != filterParam) {
+	if(getURLParameter('sort') !== sortParam || getURLParameter('filter') !== filterParam) {
 		history.pushState(null, null, "index.html?sort="+sortParam+"&filter="+filterParam);
 	}
 }
@@ -190,14 +190,6 @@ function displayObjects() {
 			}
 			$( ".Container" ).append( str );
 		});
-
-		$(".filter").on( "click", function(event) {
-			$(".nav-category").parent().removeClass('active');
-			
-			filterJSON($(event.target).text());
-			setCategoryActive($(event.target).text());
-			displayObjects();
-		});
 	} else {
 		// filtered objects is empty - show info
 		$( ".Container" ).empty().append('<div class="col-md-12" id="noResults">No results to display</div');
@@ -265,6 +257,14 @@ $( document ).ready(function() {
     	sortJSON();
 	  	displayObjects();
     });
+
+    $(".filter").on( "click", function(event) {
+			$(".nav-category").parent().removeClass('active');
+			
+			filterJSON($(event.target).text());
+			setCategoryActive($(event.target).text());
+			displayObjects();
+		});
 
 	// load project details via ajax
 	$.getJSON( "projects/projects.json", function( data ) {
