@@ -1,4 +1,5 @@
-var jsonObjects = [],
+var githubToken = '3c0b397bd4e5bdb5c58e5c14126136a1e79b67f8',
+    jsonObjects = [],
     filteredObjects = [],
     deferreds = [],
     sortParam, filterParam, endpointUri;
@@ -8,7 +9,7 @@ function getURLParameter(name) {
 }
 
 function removeHTMLChars(str) {
-    if (str) {
+    if (str && typeof str === 'string') {
         return str.replace(/(<([^>]+)>)/ig, "");
     } else {
         return null;
@@ -168,41 +169,83 @@ function displayObjects() {
         sortJSON();
         $(".Container").empty();
         $.each(filteredObjects, function(i, item) {
-            var str = '<div class="col-md-6"><div class="mix"><p class="header">';
-            // if GitHub API call successful: show updatedat
-            if (item.updatedAt) {
-                str += '<span class="updatedAt hidden-xs"><i class="fa fa-clock-o"></i> Updated on ' + formatDate(removeHTMLChars(item.updatedAt)) + '</span><span class="categories">';
-            } else {
-                str += '<span class="categories">';
-            }
-            // add all categories as labels
-            $.each(item.categories, function(c, category) {
-                if (category.name.toLowerCase() === "featured") {
-                    str += '<a class="filter"><span class="label label-default label-featured">' + removeHTMLChars(category.name.toUpperCase()) + '</span></a>';
-                } else {
-                    str += '<a class="filter"><span class="label label-default">' + removeHTMLChars(category.name.toUpperCase()) + '</span></a>';
-                }
-            });
-            if (item.projectTitle.length > 31) {
-                str += '</span></p><div class="card-desc"><h2><a target="_blank" href="' + removeHTMLChars(item.linkToGithub) + '">' + removeHTMLChars(item.projectTitle.substring(0, 30)) + '...<a/></h2>';
-            } else {
-                str += '</span></p><div class="card-desc"><h2><a target="_blank" href="' + removeHTMLChars(item.linkToGithub) + '">' + removeHTMLChars(item.projectTitle) + '<a/></h2>';
+            var str = '<div class="col-md-6"><div class="mix"><div class="row header">';
+
+            if(item.projectTitle) {
+              str += '<div class="col-md-8 col-xs-8"><span class="title"><a target="_blank" href="' + removeHTMLChars(item.linkToGithub) + '">' + removeHTMLChars(item.projectTitle.substring(0, 29));
+              // if title is to long, indicate it
+              if(item.projectTitle.length > 30) {
+                str +=  '...';
+              }
+              str += '</a></span></div>';
             }
 
-            // if project description too long, add "..."
-            if (item.projectDescription.length > 285) {
-                str += '<p class="description">' + removeHTMLChars(item.projectDescription.substring(0, 284)) + '...</p></div><p class="actions">';
+            if(item.stargazers_count) {
+              str += '<div class="col-md-2 col-xs-2 text-right"><span class="stars"><i class="fa fa-star"></i> ' + item.stargazers_count + '</span></div>';
             } else {
-                str += '<p class="description">' + removeHTMLChars(item.projectDescription) + '</p></div><p class="actions">';
+                // generate placeholder
+                str += '<div class="col-md-2 col-xs-2 text-right"><span class="stars"></span></div>';
             }
 
-            // project url not required, so just add if available
-            if (item.linkToProject) {
-                str += '<a target="_blank" class="btn btn-info btn-bottom-left" href="' + removeHTMLChars(item.linkToGithub) + '" role="button"><i class="fa fa-code-fork"></i> Repository</a>';
-                str += '<a target="_blank" class="btn btn-success btn-bottom-right" href="' + removeHTMLChars(item.linkToProject) + '" role="button"><i class="fa fa-cogs"></i> Get started</a></p></div></div>';
+            if(item.forks_count) {
+              str += '<div class="col-md-2 col-xs-2 text-right"><span class="forks"><i class="fa fa-code-fork"></i> ' + item.forks_count + '</span></div>';
             } else {
-                str += '<a target="_blank" class="btn btn-info btn-bottom-full" href="' + removeHTMLChars(item.linkToGithub) + '" role="button"><i class="fa fa-code-fork"></i> Repository</a></p></div></div>';
+                // generate placeholder
+                str += '<div class="col-md-2 col-xs-2 text-right"><span class="forks"></span></div>';
             }
+
+            // close header div
+            str += '</div>';
+
+            if(item.updatedAt) {
+              str += '<div class="row details"><div class="col-md-6 col-sm-6 hidden-xs"><span class="updatedAt">Last updated on ' + formatDate(removeHTMLChars(item.updatedAt)) + '</span></div>';
+            }
+
+            if(item.subscribers_count) {
+                str += '<div class="col-md-6 col-sm-6 hidden-xs text-right"><span class="watchers"><i class="fa fa-eye"></i> ' + item.subscribers_count + ' people watching</span></div>';
+            }
+
+            // close details div
+            str += '</div>';
+
+            if(item.projectDescription) {
+              str += '<div class="row description"><div class="col-md-12"><p class="desc-text">' + removeHTMLChars(item.projectDescription.substring(0, 279));
+              // if title is to long, indicate it
+              if(item.projectDescription.length > 280) {
+                str +=  '...';
+              }
+              str += '</p></div></div>';
+            }
+
+            // add horizontal line and placeholder for language - even if not received by the API
+            str += '<hr /><div class="row more-details"><div class="col-md-6 col-sm-6"><span class="language">Language: ' + removeHTMLChars(item.language) + '</span></div>';
+
+            if(item.categories) {
+              str += '<div class="col-md-6 col-sm-6 text-right"><span class="categories">Categories: ';
+              // add all categories as labels
+              $.each(item.categories, function(c, category) {
+                  str += '<a class="filter">' + removeHTMLChars(category.name) + '</a>';
+                  if(c < item.categories.length-1) {
+                    str += ', ';
+                  }
+              });
+              str += '</span></div>';
+            }
+
+            // close more-details div
+            str += '</div>';
+
+            if(item.linkToGithub) {
+              str += '<div class="row actions"><div class="col-md-6"><a target="_blank" class="btn btn-info btn-bottom-left" href="' + removeHTMLChars(item.linkToGithub) + '" role="button"><i class="fa fa-github"></i> Repository</a></div>';
+            }
+
+            if(item.linkToProject) {
+              str += '<div class="col-md-6"><a target="_blank" class="btn btn-success btn-bottom-right" href="' + removeHTMLChars(item.linkToProject) + '" role="button"><i class="fa fa-external-link"></i> Get started</a></div>';
+            }
+
+            // close actions, max and col-md-6 div
+            str += '</div></div></div>';
+
             $(".Container").append(str);
         });
     } else {
@@ -220,9 +263,9 @@ function appendAPIData(data) {
             item.updatedAt = data.updated_at;
 
             // TODO: potentially attributes name and description could be used - less effort but would require people to maintain/update existing descriptions and names
-            // attributes that could be used for enhancements: langague, stargazers_count, forks_count, homepage
-            if (data.langague) {
-                item.langague = data.langague;
+            // attributes that could be used for enhancements: language, stargazers_count, forks_count, homepage
+            if (data.language) {
+                item.language = data.language;
             }
             if (data.homepage) {
                 // will override the JSON url if maintained on GitHub on purpose
@@ -231,6 +274,7 @@ function appendAPIData(data) {
             item.forks_count = data.forks_count;
             item.open_issues_count = data.open_issues_count;
             item.stargazers_count = data.stargazers_count;
+            item.subscribers_count = data.subscribers_count;
         }
     });
 }
@@ -318,8 +362,10 @@ $(document).ready(function() {
             deferreds.push(
                 // get repo details from GitHub API
                 $.ajax({
-                    accepts: {
-                        text: "application/vnd.github.v3+json"
+                    headers: {
+                      "Accept" : "application/vnd.github.v3+json",  
+                      // set authorization header to get 5000 requests/hr per IP for the GitHub API
+                      "Authorization": "token " + githubToken
                     },
                     url: value.APIUri,
                     success: appendAPIData
